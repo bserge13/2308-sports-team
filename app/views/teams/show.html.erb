@@ -1,6 +1,7 @@
 <h1><%= @team.team_name%> Show Page</h1>
 
-<%= link_to "All Teams", "/teams" %>
+<p><%= link_to "All Teams", "/teams" %></p>
+<p><%= link_to "#{@team.team_name} Players", "/teams/#{@team.id}/players" %></p>
 
 
   <p> Location: <%= @team.city %> </p>
