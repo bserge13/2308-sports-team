@@ -1,0 +1,8 @@
+<h1> Player Index Page </h1>
+
+  <% @players.each do |player| %>
+  <br><li> Name: <%= player.player_name %></li>
+  <li> Age: <%= player.age %></li>
+  <li> Hometown: <%= player.hometown %></li>
+  <li> All-Star: <%= player.all_star %></li></br>
+  <% end %>
