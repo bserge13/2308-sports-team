@@ -5,4 +5,8 @@ class Team < ApplicationRecord
   # validates_presence_of :expansion_team
 
   validates_numericality_of :number_of_titles
+
+  def self.desc_order
+    all.order(created_at: :desc) 
+  end
 end
