@@ -41,5 +41,11 @@ RSpec.describe "Features" do
 
       expect(page).to_not have_content(@bird.player_name)
     end
+
+    it "has a link to a teams index page" do 
+      visit "/teams/#{@bulls.id}/players"
+
+      expect(page).to have_link("All Teams") 
+    end
   end 
 end 

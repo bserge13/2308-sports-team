@@ -25,10 +25,10 @@ RSpec.describe "Features" do
       expect(page).to have_content("Number of Players: #{@bulls.player_count}")
     end
 
-    it "has a link to a teams players show page" do 
+    it "has a link to a teams index page" do 
       visit "/teams/#{@bulls.id}"
 
-      expect(page).to have_link("Players") 
+      expect(page).to have_link("All Teams") 
     end
   end 
 end 

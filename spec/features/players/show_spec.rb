@@ -22,5 +22,12 @@ RSpec.describe "Features" do
       expect(page).to have_content(@iverson.hometown)
       expect(page).to have_content(@iverson.all_star)
     end
+
+    it "has a link to a teams index page" do 
+      visit "/players/#{@iverson.id}"
+
+      expect(page).to have_link("All Teams") 
+    end
+
   end 
 end 
