@@ -43,6 +43,5 @@ RSpec.describe "Features" do
 
       expect(page).to have_link("All Teams") 
     end
-
   end
 end
