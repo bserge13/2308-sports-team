@@ -1,0 +1,8 @@
+<h1> <%=@team.city%> <%=@team.team_name %> Index Page </h1>
+
+  <% @players.each do |player| %>
+  <br><p> Name: <%= player.player_name %> </p>
+  <p> Age: <%= player.age %> </p>
+  <p> Hometown: <%= player.hometown %> </p>
+  <p> All-Star: <%= player.all_star %> </p></br>
+  <% end %>
