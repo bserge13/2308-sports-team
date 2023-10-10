@@ -1,5 +1,8 @@
 <h1><%= @team.team_name%> Show Page</h1>
 
+<%= link_to "Players", "/teams/#{@team.id}/players" %>
+
+
   <p> Location: <%= @team.city %> </p>
   <p> Name: <%= @team.team_name %> </p>
   <p> Number of Titles: <%= @team.number_of_titles %> </p>

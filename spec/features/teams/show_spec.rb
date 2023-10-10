@@ -13,7 +13,6 @@ RSpec.describe "Features" do
       @rodman = Player.create!(player_name: "Dennis Rodman", age: 22, hometown: "Bronx, NY", all_star: true, team_id: @bulls.id)
       @kerr = Player.create!(player_name: "Steve Kerr", age: 32, hometown: "San Fransisco, CA", all_star: false, team_id: @bulls.id)
       @bird = Player.create!(player_name: "Larry Bird", age: 33, hometown: "French Lick, IN", all_star: true, team_id: @celtics.id)
-
     end
     
     it "has a show page with a teams attributes" do 
@@ -24,6 +23,12 @@ RSpec.describe "Features" do
       expect(page).to have_content(@bulls.expansion_team)
       expect(page).to have_content(@bulls.number_of_titles)
       expect(page).to have_content("Number of Players: #{@bulls.player_count}")
+    end
+
+    it "has a link to a teams players show page" do 
+      visit "/teams/#{@bulls.id}"
+
+      expect(page).to have_link("Players") 
     end
   end 
 end 
