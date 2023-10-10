@@ -40,6 +40,7 @@ RSpec.describe Team, type: :model do
         @bird = Player.create!(player_name: "Larry Bird", age: 33, hometown: "French Lick, IN", all_star: true, team_id: @celtics.id)
         
         expect(@bulls.player_count).to eq 4 
+        expect(@celtics.player_count).to eq 1
       end 
     end
   end
