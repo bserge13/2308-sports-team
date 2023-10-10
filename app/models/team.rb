@@ -9,4 +9,8 @@ class Team < ApplicationRecord
   def self.desc_order
     all.order(created_at: :desc) 
   end
+
+  def player_count
+    players.count
+  end
 end
