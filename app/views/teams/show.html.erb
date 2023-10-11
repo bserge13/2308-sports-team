@@ -9,3 +9,5 @@
   <p> Number of Titles: <%= @team.number_of_titles %> </p>
   <p> Expansion Team: <%= @team.expansion_team %> </p>
   <p> Number of Players: <%= @team.player_count %> </p>
+
+<p><%= link_to "Update Team", "/teams/#{@team.id}/edit" %>

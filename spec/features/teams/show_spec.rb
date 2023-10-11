@@ -36,5 +36,18 @@ RSpec.describe "Features" do
 
       expect(page).to have_link("#{@bulls.team_name} Players") 
     end
+
+    it "has a link to update a team" do 
+      visit "/teams/#{@bulls.id}"
+
+      expect(page).to have_link("Update Team")
+    end
+
+    it "routes a user to a page to edit a team" do 
+      visit "/teams/#{@bulls.id}"
+
+      click_link("Update Team")
+      expect(page).to have_current_path("/teams/#{@bulls.id}/edit")
+    end
   end 
 end 

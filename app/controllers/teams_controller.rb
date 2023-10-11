@@ -10,6 +10,10 @@ class TeamsController < ApplicationController
   def new
   end
 
+  def edit 
+    @team = Team.find(params[:id])
+  end
+
   def create 
     team = Team.new(team_params) 
     if team.save 
