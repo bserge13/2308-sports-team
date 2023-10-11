@@ -1,6 +1,7 @@
 <h1> Team Index Page </h1>
 
-
   <% @teams.each do |team| %>
-  <p><%= team.city%> <%= team.team_name%>
+    <p><%= team.city%> <%= team.team_name%>
   <% end %>
+
+  <p><%= link_to "New Team", "/teams/new" %></p>

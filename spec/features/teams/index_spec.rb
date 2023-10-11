@@ -24,5 +24,18 @@ RSpec.describe "Features" do
       expect(page).to have_content(@philly.team_name)
       expect(page).to have_content(@philly.city)
     end
+
+    it "has a link to create a new team" do 
+      visit "/teams"
+
+      expect(page).to have_link("New Team")
+    end
+
+    it "routes a user to page to create a new team" do 
+      visit "/teams"
+  
+      click_link("New Team")
+      expect(page).to have_current_path("/teams/new")
+    end
   end 
 end 
