@@ -18,10 +18,10 @@ RSpec.describe "Features" do
     it "has a show page with a teams attributes" do 
       visit "/teams/#{@bulls.id}"
       
-      expect(page).to have_content(@bulls.team_name)
-      expect(page).to have_content(@bulls.city)
-      expect(page).to have_content(@bulls.expansion_team)
-      expect(page).to have_content(@bulls.number_of_titles)
+      expect(page).to have_content("Name: #{@bulls.team_name}")
+      expect(page).to have_content("Location: #{@bulls.city}")
+      expect(page).to have_content("Number of Titles: #{@bulls.number_of_titles}")
+      expect(page).to have_content("Expansion Team: #{@bulls.expansion_team}")
       expect(page).to have_content("Number of Players: #{@bulls.player_count}")
     end
 

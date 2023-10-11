@@ -24,6 +24,13 @@ class TeamsController < ApplicationController
     end
   end
 
+  def update
+    team = Team.find(params[:id])
+    if team.update(team_params)
+      redirect_to "/teams/#{team.id}"
+    end
+  end
+
   private
 
   def team_params

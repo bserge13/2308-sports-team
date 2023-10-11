@@ -1,2 +1,18 @@
-<h1>Edit Page</h1 >
+<h1>Edit <%=@team.city%> <%=@team.team_name %></h1 >
 
+<%= form_with url: "/teams/#{@team.id}", method: :patch, local: true do |f| %>
+
+  <%= f.label :team_name, "Team Name" %>
+  <%= f.text_field :team_name, :value => @team.team_name %>
+
+  <%= f.label :city%>
+  <%= f.text_field :city, :value => @team.city %>
+
+  <%= f.label :number_of_titles, "Number of Titles" %>
+  <%= f.number_field :number_of_titles, :value => @team.number_of_titles %>
+
+  <%= f.label :expansion_team, "Expansion Team" %>
+  <%= f.check_box :expansion_team, {}, true, false %>
+
+  <%= f.submit "Update Team" %>
+  <% end %>
