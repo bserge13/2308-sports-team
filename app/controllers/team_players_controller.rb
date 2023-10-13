@@ -20,6 +20,6 @@ class TeamPlayersController < ApplicationController
   private 
 
   def player_params
-    params.permit(:id, :player_name, :hometown, :age, :all_star)
+    params.permit(:id, :player_name, :hometown, :age, :all_star, :team_id)
   end
 end
