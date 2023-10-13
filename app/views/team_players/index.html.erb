@@ -1,10 +1,11 @@
 <h1> <%=@team.city%> <%=@team.team_name %> Index Page </h1>
 <%= link_to "All Teams", "/teams" %>
 
-
   <% @players.each do |player| %>
   <br><p> Name: <%= player.player_name %> </p>
   <p> Age: <%= player.age %> </p>
   <p> Hometown: <%= player.hometown %> </p>
   <p> All-Star: <%= player.all_star %> </p></br>
   <% end %>
+
+<%= link_to "Create Player", "/teams/#{@team.id}/players/new" %>

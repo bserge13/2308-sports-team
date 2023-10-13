@@ -47,5 +47,18 @@ RSpec.describe "Features" do
 
       expect(page).to have_link("All Teams") 
     end
+
+    it "has a link to add a new player to a team" do 
+      visit "/teams/#{@bulls.id}/players"
+
+      expect(page).to have_link("Create Player") 
+    end
+
+    it "routes to page with a form to create a new player" do 
+      visit "/teams/#{@bulls.id}/players"
+
+      click_link("Create Player")
+      expect(page).to have_current_path("/teams/#{@bulls.id}/players/new")
+    end
   end 
 end 

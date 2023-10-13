@@ -18,10 +18,7 @@ class TeamsController < ApplicationController
     team = Team.new(team_params) 
     if team.save 
       redirect_to "/teams"
-    else 
-      flash[:error] = "Error: All fields must be filled in to create"
-      redirect_to "/teams/new"
-    end
+    end 
   end
 
   def update

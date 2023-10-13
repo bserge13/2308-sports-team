@@ -1,0 +1,18 @@
+<h1> Create a Player </h1>
+
+<%= form_with url: "/teams/#{@team.id}/players", method: :post, local: true do |f| %>
+
+  <%= f.label :player_name, "Player Name" %>
+  <%= f.text_field :player_name %>
+
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  
+  <%= f.label :hometown %>
+  <%= f.text_field :hometown, :value => "Ex: Denver, CO" %>
+
+  <%= f.label :all_star, "All-Star" %>
+  <%= f.check_box :all_star, {}, true, false %>
+
+  <%= f.submit "Create Player" %>
+  <% end %>
