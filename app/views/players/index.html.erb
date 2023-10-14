@@ -1,9 +1,13 @@
 <h1> Player Index Page </h1>
 <%= link_to "All Teams", "/teams" %>
 
-  <% @players.each do |player| %>
-  <br><li> Name: <%= player.player_name %></li>
-  <li> Age: <%= player.age %></li>
-  <li> Hometown: <%= player.hometown %></li>
-  <li> All-Star: <%= player.all_star %></li></br>
+<% @players.each do |player| %>
+
+  <% if player.all_star == true %>
+    <br><li> Name: <%= player.player_name %></li>
+    <li> Age: <%= player.age %></li>
+    <li> Hometown: <%= player.hometown %></li>
+    <li> All-Star: <%= player.all_star %></li></br>
   <% end %>
+  
+<% end %>

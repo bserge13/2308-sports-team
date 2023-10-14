@@ -14,7 +14,8 @@ RSpec.describe "Features" do
       @iverson = Player.create!(player_name: "Allen Iverson", age: 28, hometown: "Hampton, VA", all_star: false, team_id: @philly.id)
     end
 
-    it "has an index of all players" do 
+    # US 15- update to players index 
+    it "has an index of all players only if they are an all-star" do 
       visit "/players"
 
       expect(page).to have_content(@jordan.player_name)
@@ -32,10 +33,11 @@ RSpec.describe "Features" do
       expect(page).to have_content(@magic.hometown)
       expect(page).to have_content(@magic.all_star)
 
-      expect(page).to have_content(@iverson.player_name)
-      expect(page).to have_content(@iverson.age)
-      expect(page).to have_content(@iverson.hometown)
-      expect(page).to have_content(@iverson.all_star)
+      expect(page).to_not have_content(@iverson.player_name)
+      expect(page).to_not have_content(@iverson.age)
+      expect(page).to_not have_content(@iverson.hometown)
+      expect(page).to_not have_content(@iverson.all_star)
+      save_and_open_page
     end
 
     it "has a link to a teams index page" do 
