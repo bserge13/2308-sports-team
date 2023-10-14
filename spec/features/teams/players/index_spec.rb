@@ -68,6 +68,7 @@ RSpec.describe "Features" do
     end
 
     it "routes back to a teams players index page with players in alphabetical order" do 
+      # US 16- I feel like I hard coded with the method in the controller vs allowing for a link to do the alphabatizing? 
       visit "/teams/#{@bulls.id}/players"
 
       click_link("Alphabetical Order")
