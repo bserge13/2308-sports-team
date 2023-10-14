@@ -5,8 +5,4 @@ class Player < ApplicationRecord
   validates :all_star, inclusion: [true, false]
   
   validates_numericality_of :age
-
-  def only_all_star
-    require 'pry'; binding.pry
-  end
 end

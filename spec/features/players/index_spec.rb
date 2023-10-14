@@ -37,7 +37,6 @@ RSpec.describe "Features" do
       expect(page).to_not have_content(@iverson.age)
       expect(page).to_not have_content(@iverson.hometown)
       expect(page).to_not have_content(@iverson.all_star)
-      save_and_open_page
     end
 
     it "has a link to a teams index page" do 

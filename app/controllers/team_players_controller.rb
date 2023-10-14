@@ -1,7 +1,7 @@
 class TeamPlayersController < ApplicationController
   def index 
     @team = Team.find(params[:id])
-    @players = @team.players
+    @players = @team.alphabatize
   end
 
   def new

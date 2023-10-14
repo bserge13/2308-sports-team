@@ -60,5 +60,22 @@ RSpec.describe "Features" do
       click_link("Create Player")
       expect(page).to have_current_path("/teams/#{@bulls.id}/players/new")
     end
+
+    it "has a link to alphabatize players" do 
+      visit "/teams/#{@bulls.id}/players"
+
+      expect(page).to have_link("Alphabetical Order") 
+    end
+
+    it "routes back to a teams players index page with players in alphabetical order" do 
+      visit "/teams/#{@bulls.id}/players"
+
+      click_link("Alphabetical Order")
+      expect(page).to have_current_path("/teams/#{@bulls.id}/players")
+
+      expect(@rodman.player_name).to appear_before(@jordan.player_name)
+      expect(@jordan.player_name).to appear_before(@pippen.player_name)
+      expect(@pippen.player_name).to appear_before(@kerr.player_name)
+    end
   end 
 end 
