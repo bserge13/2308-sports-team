@@ -43,5 +43,18 @@ RSpec.describe Team, type: :model do
         expect(@celtics.player_count).to eq 1
       end 
     end
+    
+    describe "#alphabatize" do 
+      it "returns a teams players in alphabetical order" do 
+        @bulls = Team.create!(team_name: "Bulls", city: "Chicago", expansion_team: true, number_of_titles: 6)
+
+        @jordan = Player.create!(player_name: "Michael Jordan", age: 23, hometown: "Willmington, NC", all_star: true, team_id: @bulls.id)
+        @pippen = Player.create!(player_name: "Scotty Pippen", age: 22, hometown: "Hamburg, AK", all_star: true, team_id: @bulls.id)
+        @rodman = Player.create!(player_name: "Dennis Rodman", age: 22, hometown: "Bronx, NY", all_star: true, team_id: @bulls.id)
+        @kerr = Player.create!(player_name: "Steve Kerr", age: 32, hometown: "San Fransisco, CA", all_star: false, team_id: @bulls.id)
+
+        expect(@bulls.alphabatize).to eq([@rodman, @jordan, @pippen, @kerr])
+      end
+    end
   end
 end

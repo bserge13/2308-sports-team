@@ -13,4 +13,8 @@ class Team < ApplicationRecord
   def player_count
     players.count
   end
+
+  def alphabatize 
+    players.order("player_name")  
+  end
 end
