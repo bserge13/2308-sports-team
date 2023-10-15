@@ -37,5 +37,22 @@ RSpec.describe "Features" do
       click_link("New Team")
       expect(page).to have_current_path("/teams/new")
     end
+
+    it "has a button to update a team" do 
+      visit "/teams"
+
+      expect(page).to have_link("Update #{@bulls.team_name}")
+      expect(page).to have_link("Update #{@celtics.team_name}")
+      expect(page).to have_link("Update #{@lakers.team_name}")
+      expect(page).to have_link("Update #{@philly.team_name}")
+    end
+
+    it "redirects a user to a teams edit page" do 
+      # this works with link, but with button_to it requires a POST route and action? 
+      visit "/teams"
+
+      click_link("Update #{@bulls.team_name}")
+      expect(page).to have_current_path("/teams/#{@bulls.id}/edit")
+    end
   end 
 end 
