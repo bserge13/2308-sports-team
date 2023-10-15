@@ -1,5 +1,5 @@
 <h1> Player Index Page </h1>
-<%= link_to "All Teams", "/teams" %>
+<br><%= link_to "All Teams", "/teams" %></br>
 
 <% @players.each do |player| %>
 
@@ -7,7 +7,8 @@
     <br><li> Name: <%= player.player_name %></li>
     <li> Age: <%= player.age %></li>
     <li> Hometown: <%= player.hometown %></li>
-    <li> All-Star: <%= player.all_star %></li></br>
+    <li> All-Star: <%= player.all_star %></li>
+    <%= link_to "Update #{player.player_name}", "/players/#{player.id}/edit" %></br>
   <% end %>
   
 <% end %>

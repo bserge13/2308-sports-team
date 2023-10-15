@@ -44,5 +44,27 @@ RSpec.describe "Features" do
 
       expect(page).to have_link("All Teams") 
     end
+
+    it "redirects users to a teams index page" do 
+      visit "/players"
+
+      click_link("All Teams")
+      expect(page).to have_current_path("/teams")
+    end
+
+    it "has a link to edit a player" do 
+      visit "/players"
+
+      expect(page).to have_content("Update #{@jordan.player_name}")
+      expect(page).to have_content("Update #{@bird.player_name}")
+      expect(page).to have_content("Update #{@magic.player_name}")
+    end
+
+    it "redirects a user to a players edit page" do 
+      visit "/players"
+
+      click_link("Update #{@magic.player_name}")
+      expect(page).to have_current_path("/players/#{@magic.id}/edit")
+    end
   end
 end
