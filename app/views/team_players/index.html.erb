@@ -8,5 +8,5 @@
   <p> All-Star: <%= player.all_star %> </p></br>
   <% end %>
 
-<br><%= link_to "Alphabetical Order", "/teams/#{@team.id}/players" %></br>
+<br><%= link_to "Alphabetical Order", "/teams/#{@team.id}/players?sort=asc" %></br>
 <%= link_to "Create Player", "/teams/#{@team.id}/players/new" %>

@@ -66,5 +66,5 @@ RSpec.describe "Features" do
       click_link("Update #{@magic.player_name}")
       expect(page).to have_current_path("/players/#{@magic.id}/edit")
     end
-  end
+  end 
 end

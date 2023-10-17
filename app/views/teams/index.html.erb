@@ -3,6 +3,7 @@
   <br><% @teams.each do |team| %>
     <p><%= team.city%> <%= team.team_name%>
     <%= link_to "Update #{team.team_name}", "/teams/#{team.id}/edit" %>
+    <%= link_to "Delete #{team.team_name}", "/teams/#{team.id}" %>
   <% end %></br>
 
   <p><%= link_to "New Team", "/teams/new" %></p>

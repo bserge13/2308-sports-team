@@ -48,11 +48,28 @@ RSpec.describe "Features" do
     end
 
     it "redirects a user to a teams edit page" do 
-      # this works with link, but with button_to it requires a POST route and action? 
       visit "/teams"
 
       click_link("Update #{@bulls.team_name}")
       expect(page).to have_current_path("/teams/#{@bulls.id}/edit")
+    end
+
+    it "has a link next to teams to delete from the index page" do 
+      visit "/teams"
+
+      expect(page).to have_content("Delete #{@bulls.team_name}") 
+      expect(page).to have_content("Delete #{@celtics.team_name}") 
+      expect(page).to have_content("Delete #{@lakers.team_name}") 
+      expect(page).to have_content("Delete #{@philly.team_name}") 
+    end  
+
+    it "deletes a team from the index page" do 
+      visit "/teams"
+
+      click_link("Delete #{@lakers.team_name}")
+      expect(page).to have_current_path("/teams")
+
+      expect(page).to_not have_content(@lakers.team_name)
     end
   end 
 end 

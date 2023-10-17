@@ -72,7 +72,7 @@ RSpec.describe "Features" do
       visit "/teams/#{@bulls.id}/players"
 
       click_link("Alphabetical Order")
-      expect(page).to have_current_path("/teams/#{@bulls.id}/players")
+      expect(page).to have_current_path("/teams/#{@bulls.id}/players?sort=asc")
 
       expect(@rodman.player_name).to appear_before(@jordan.player_name)
       expect(@jordan.player_name).to appear_before(@pippen.player_name)
