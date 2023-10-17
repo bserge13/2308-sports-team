@@ -10,11 +10,8 @@ class TeamPlayersController < ApplicationController
 
   def create 
     @team = Team.find(params[:id])
-    @player = @team.players.new(player_params)
-
-    if @player.save 
+    @player = @team.players.create(player_params)
       redirect_to "/teams/#{@team.id}/players"
-    end 
   end
 
   private 

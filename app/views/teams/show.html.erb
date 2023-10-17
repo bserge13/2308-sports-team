@@ -10,4 +10,5 @@
   <p> Expansion Team: <%= @team.expansion_team %> </p>
   <p> Number of Players: <%= @team.player_count %> </p>
 
-<p><%= link_to "Update Team", "/teams/#{@team.id}/edit" %>
+<%= link_to "Update Team", "/teams/#{@team.id}/edit" %>
+<%= link_to "Delete #{@team.team_name}", "/teams/#{@team.id}", method: :delete %>

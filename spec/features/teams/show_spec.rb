@@ -49,5 +49,19 @@ RSpec.describe "Features" do
       click_link("Update Team")
       expect(page).to have_current_path("/teams/#{@bulls.id}/edit")
     end
+
+    it "has a link to delete a team" do
+      visit "/teams/#{@philly.id}"
+
+      expect(page).to have_content("Delete #{@philly.team_name}")
+    end
+
+    it "deletes a team and redirects a user back to the teams index page" do 
+      visit "/teams/#{@philly.id}"
+
+      click_link("Delete #{@philly.team_name}")
+      expect(page).to have_current_path("/teams")
+      expect(page).to_not have_content(@philly.team_name) 
+    end
   end 
 end 
