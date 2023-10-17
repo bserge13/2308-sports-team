@@ -48,5 +48,20 @@ RSpec.describe "Features" do
       click_link("Edit Player")
       expect(page).to have_current_path("/players/#{@iverson.id}/edit")
     end
+
+    it "has a link to delete a player" do
+      visit "/players/#{@magic.id}"
+
+      expect(page).to have_content("Delete #{@magic.player_name}")
+    end
+
+    it "deletes a player and redirects a user back to the players index page" do 
+      visit "/players/#{@magic.id}"
+      
+      click_link("Delete #{@magic.player_name}")
+      expect(page).to have_current_path("/players")
+
+      expect(page).to_not have_content(@magic.player_name) 
+    end
   end 
 end 

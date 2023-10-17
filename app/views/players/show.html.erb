@@ -8,3 +8,4 @@
   <p> All-Star: <%= @player.all_star %> </p>
 
 <%= link_to "Edit Player", "/players/#{@player.id}/edit"%>
+<%= link_to "Delete #{@player.player_name}", "/players/#{@player.id}", method: :delete %>

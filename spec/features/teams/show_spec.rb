@@ -61,6 +61,8 @@ RSpec.describe "Features" do
 
       click_link("Delete #{@philly.team_name}")
       expect(page).to have_current_path("/teams")
+      
+      expect(page).to_not have_content(@philly.city) 
       expect(page).to_not have_content(@philly.team_name) 
     end
   end 
