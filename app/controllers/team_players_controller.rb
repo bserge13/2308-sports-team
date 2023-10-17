@@ -1,11 +1,11 @@
 class TeamPlayersController < ApplicationController
   def index 
     @team = Team.find(params[:id])
-    @players = @team.players 
     if params[:sort] == "asc" 
       @players = @team.alphabatize
+    else 
+      @players = @team.players 
     end 
-
   end
 
   def new
