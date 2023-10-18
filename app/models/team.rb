@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :players 
+  has_many :players, dependent: :destroy  
 
   validates_presence_of :team_name, :city
   validates :expansion_team, inclusion: [true, false]
